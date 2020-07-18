@@ -1,0 +1,15 @@
+{
+    "name": "pejer-components/container",
+    "description": "A DI-container. Hopefully",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Henrik Pejer",
+            "email": "mrpejer@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}
