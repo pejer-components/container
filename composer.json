@@ -1,15 +1,23 @@
 {
-    "name": "pejer-components/container",
-    "description": "A DI-container. Hopefully",
-    "type": "library",
-    "authors": [
-        {
-            "name": "Henrik Pejer",
-            "email": "mrpejer@gmail.com"
-        }
-    ],
-    "require": {},
-    "require-dev": {
-        "phpunit/phpunit": "^9"
+  "name": "pejer-components/container",
+  "description": "A DI-container. Hopefully",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Henrik Pejer",
+      "email": "mrpejer@gmail.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "components\\container\\": "src/"
+    }
+  },
+  "require": {
+    "symfony/yaml": "^5.1",
+    "php": "^7.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  }
 }
