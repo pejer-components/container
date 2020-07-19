@@ -12,6 +12,9 @@ class Container implements ContainerInterface
   private $resolver = null;
 
   private $aliases = array();
+
+  private $objects = array();
+
   function __construct()
   {
     $this->resolver = new Resolve();
@@ -32,9 +35,13 @@ class Container implements ContainerInterface
   /**
    * The name/alias we want to load
    */
-  public function get(string $alias): object
+  public function &get(string $alias): object
   {
-    $classToLoad = isset($this->aliases[$alias]) ? $this->aliases[$alias] : $alias;
-    return $this->resolver->load($classToLoad);
+    if (!isset($this->objects[$alias])) {
+      $classToLoad = isset($this->aliases[$alias]) ? $this->aliases[$alias] : $alias;
+
+      $this->objects[$alias] = $this->resolver->load($classToLoad);
+    }
+    return $this->objects[$alias];
   }
 }
