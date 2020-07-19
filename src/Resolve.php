@@ -5,7 +5,7 @@ namespace components\container;
 
 class Resolve implements ResolveInterface
 {
-  function load(string $class): object
+  public function load(string $class): object
   {
     if (!$this->check($class)) {
       throw new ExceptionMissingObject("Unable to load that class");
@@ -15,7 +15,7 @@ class Resolve implements ResolveInterface
     return $return;
   }
 
-  function check(string $class): bool
+  public function check(string $class): bool
   {
     return class_exists($class, true);
   }
