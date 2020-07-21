@@ -15,9 +15,12 @@ class Container implements ContainerInterface
 
   private $objects = array();
 
-  function __construct()
+  function __construct(array $aliases = null)
   {
     $this->resolver = new Resolve();
+    if ($aliases != null) {
+      $this->aliases = $aliases;
+    }
   }
 
   /**

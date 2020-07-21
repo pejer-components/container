@@ -21,6 +21,15 @@ class ContainerTest extends TestCase
     $this->assertInstanceOf('StdClass', $object);
   }
 
+  public function testLoadingAliasTwiceReturnsSameObjectWithConfigs()
+  {
+    $container = new Container(['Pejer' => "StdClass"]);
+    $object = $container->get('Pejer');
+    $this->assertInstanceOf('StdClass', $object);
+    $this->assertEquals(spl_object_id($container->get('Pejer')), spl_object_id($object));
+    $this->assertNotEquals(spl_object_id($container->get('Pejer')), spl_object_id($container->get('StdClass')));
+  }
+
   public function testLoadingAliasTwiceReturnsSameObject()
   {
     $container = new Container();
