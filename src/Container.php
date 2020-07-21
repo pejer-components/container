@@ -11,8 +11,10 @@ class Container implements ContainerInterface
   /** @var ResolveInterface */
   private $resolver = null;
 
+  /** @var array */
   private $aliases = array();
 
+  /** @var array */
   private $objects = array();
 
   function __construct(array $aliases = null)
